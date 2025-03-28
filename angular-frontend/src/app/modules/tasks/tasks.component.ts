@@ -3,6 +3,14 @@ import { CommonModule } from '@angular/common';
 import { TaskService } from '../../shared/services/task-service.service';
 import { Task } from '../../shared/interfaces/task';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    ReactiveFormsModule
+  ]
+})
+export class AppModule { }
 
 
 
@@ -43,4 +51,5 @@ export class TasksComponent implements OnInit {
   deleteTask(id: number): void {
     this.taskService.deleteTask(id).subscribe(() => this.loadTasks());
   }
+  
 }

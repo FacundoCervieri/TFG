@@ -1,25 +1,29 @@
-<button routerLink="/" class="bg-purple-300 text-gray-700 p-1 border border-dashed border-red-500">
-  Back
-</button>
-
-<div class="container bg-yellow-200 p-10 border-l-8 border-r-8 border-dotted border-black">
-    <h2 class="bg-sky-50 text-xs text-gray-500 font-thin ml-10">Task List</h2>
+<header class="h-full w-full flex bg-purple-900 p-10">
+  <h1 class="text-center w-full font-serif text-xl font-extrabold text-white">
+    Página task
+  </h1>
+  <button routerLink="/" class="bg-purple-300 text-gray-900 p-1 border border-dotted rounded-lg border-white">
+    Back
+  </button>
+</header>
+<div class="bg-purple-100 p-10 border-dotted border-black h-screen w-full">
+    <h2 class="font-extrabold text-grey-900 ml-10">Task List</h2>
 
     <input #taskInput type="text" placeholder="Write here..." 
-      class="w-1/3 p-1 border border-dashed border-blue-500 text-gray-300" />
+      class="ml-10 p-1 border border-dashed border-black border-solid text-gray-900 w-100" />
     <button (click)="addTask(taskInput.value); taskInput.value = ''" 
-      class="bg-orange-500 text-black text-xs p-1 border border-black ml-20">
-      Add?
+      class="bg-purple-900 text-white text-xs p-1 border border-black p-2">
+      Add
     </button>
 
     <ul *ngIf="tasks.length > 0; else noTasks" class="mt-5">
       <li *ngFor="let task of tasks" 
-          class="flex justify-between p-1 bg-gray-50 border-b-4 border-green-500">
+          class="flex justify-between p-1 bg-gray-50 border-b-4 border-purple-500">
         <span [class.completed]="task.completed" (click)="toggleTask(task)"
-          class="text-xs font-light text-red-700">
+          class="text-sm font-light text-grey-900">
           {{ task.title }}
         </span>
-        <button (click)="deleteTask(task.id)" class="bg-red-200 text-gray-700 border border-dotted border-black p-0.5">
+        <button (click)="deleteTask(task.id)" class="text-gray-700 ">
           ❌
         </button>
       </li>
