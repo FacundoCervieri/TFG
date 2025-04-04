@@ -1,31 +1,95 @@
-<button routerLink="/" class="bg-purple-300 text-gray-700 p-1 border border-dashed border-red-500">
-  Back
-</button>
+<header class="h-full w-full flex bg-purple-900 p-10">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-<div class="container bg-yellow-200 p-10 border-l-8 border-r-8 border-dotted border-black">
-    <h2 class="bg-sky-50 text-xs text-gray-500 font-thin ml-10">Task List</h2>
-
-    <input #taskInput type="text" placeholder="Write here..." 
-      class="w-1/3 p-1 border border-dashed border-blue-500 text-gray-300" />
-    <button (click)="addTask(taskInput.value); taskInput.value = ''" 
-      class="bg-orange-500 text-black text-xs p-1 border border-black ml-20">
-      Add?
+  <h1 class="text-center w-full font-serif text-xl font-extrabold text-white">
+    Página task
+  </h1>
+  <p> 
+    <button routerLink="/" class="bg-purple-300 text-gray-900 p-1 border border-dotted rounded-lg border-white">
+      Back
     </button>
+  </p>
+</header>
 
-    <ul *ngIf="tasks.length > 0; else noTasks" class="mt-5">
-      <li *ngFor="let task of tasks" 
-          class="flex justify-between p-1 bg-gray-50 border-b-4 border-green-500">
-        <span [class.completed]="task.completed" (click)="toggleTask(task)"
-          class="text-xs font-light text-red-700">
-          {{ task.title }}
-        </span>
-        <button (click)="deleteTask(task.id)" class="bg-red-200 text-gray-700 border border-dotted border-black p-0.5">
-          ❌
-        </button>
-      </li>
-    </ul>
+<!-- Barra de búsqueda -->
+<div class="bg-purple-100 text-center border-solid border-gray-900 p-2" fxLayout="row" fxLayoutAlign="center center">
+  <div class="relative w-full">
+    <input 
+      type="text" 
+      placeholder="Buscar tarea..." 
+      class="border border-gray-400 p-2 rounded-md w-full pl-10"
+      [formControl]="searchControl"
+    />
+    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600">
+      <i class="fa fa-search"></i> <!-- Lupa -->
+    </span>
+  </div>
+</div>
 
-    <ng-template #noTasks>
-      <p class="text-green-700 text-sm ml-10">Nothing here...</p>
-    </ng-template>
+<div class="bg-purple-100 p-10 border-dotted border-black h-screen w-full">
+  <h2 class="font-extrabold text-grey-900 ml-10">Task List</h2>
+
+  <!-- Formulario para agregar tarea -->
+  <form [formGroup]="userTask" (ngSubmit)="addTask()">
+    <!-- Título -->
+    <input 
+      formControlName="title" 
+      type="text" 
+      placeholder="Título..." 
+      class="ml-10 p-1 border border-solid border-black text-gray-900 w-full mb-2" 
+    />
+    
+    <!-- Mensajes de error para el título -->
+    <p *ngIf="userTask.get('title')?.hasError('required') && userTask.get('title')?.touched" class="text-red-500">
+      Se requiere el Título
+    </p>
+    
+    <p *ngIf="userTask.get('title')?.hasError('minlength') && userTask.get('title')?.touched" class="text-red-500">
+      El título debe tener al menos 3 caracteres
+    </p>
+
+    <!-- Descripción -->
+    <input 
+      formControlName="describe" 
+      type="text" 
+      placeholder="Describe la tarea..." 
+      class="ml-10 p-6 border border-solid border-black text-gray-900 w-full mb-2" 
+    />
+    
+    <!-- Mensajes de error para la descripción -->
+    <p *ngIf="userTask.get('describe')?.hasError('required') && userTask.get('describe')?.touched" class="text-red-500">
+      Se requiere la descripción.
+    </p>
+
+    <!-- Botón para agregar la tarea, deshabilitado si el formulario es inválido -->
+    <button 
+      type="submit" 
+      [disabled]="userTask.invalid" 
+      [ngClass]="{
+        'bg-purple-300 opacity-50 cursor-not-allowed': userTask.invalid, 
+        'bg-purple-900': !userTask.invalid
+      }" 
+      class="text-white text-xs p-1 border border-black p-2 ml-10">
+       Add
+    </button>
+  </form>
+
+  <!-- Lista de tareas filtradas -->
+  <ul *ngIf="filteredTasks.length > 0; else noTasks" class="mt-5">
+    <li *ngFor="let task of filteredTasks" 
+        class="flex justify-between p-1 bg-gray-50 border-b-4 border-purple-500">
+      <span [class.completed]="task.completed" (click)="toggleTask(task)"
+        class="text-sm font-light text-grey-900">
+        {{ task.title }}
+      </span>
+      <button (click)="deleteTask(task.id)" class="text-gray-700">
+        ❌
+      </button>
+    </li>
+  </ul>
+
+  <!-- Si no hay tareas -->
+  <ng-template #noTasks>
+    <p class="text-green-700 text-sm ml-10">Nothing here...</p>
+  </ng-template>
 </div>
