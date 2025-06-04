@@ -1,0 +1,33 @@
+# Angular
+/node_modules
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+.angular
+
+# Tailwind CSS (normalmente se instala vía npm, ya cubierto en node_modules)
+
+# Symfony
+/vendor/
+/var/
+/.env
+/.env.local
+/.env.*.local
+/public/bundles/
+/public/build/
+/node_modules/
+/.idea/
+/.vscode/
+/nbproject/
+/*.iml
+/.phpunit.result.cache
+/.symfony/cache/
+/.symfony/
+/var/cache/
+/var/log/
+/var/sessions/
+
+# OS generated files
+.DS_Store
+Thumbs.db
