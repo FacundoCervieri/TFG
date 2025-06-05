@@ -1,12 +1,53 @@
 .navbar {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     padding: 0;
     margin: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     width: 100%;
+    backdrop-filter: blur(10px);
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    min-height: 70px;
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    transform: scale(1.05);
+    color: #3498db;
+  }
+  
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
   }
   
   .navbar-menu {
@@ -15,27 +56,25 @@
     margin: 0;
     padding: 0;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-height: 60px;
+    gap: 0.5rem;
   }
   
   .navbar-item {
     color: white;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     cursor: pointer;
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s ease;
-    border-radius: 4px;
-    margin: 0 0.25rem;
+    border-radius: 6px;
     position: relative;
     user-select: none;
+    white-space: nowrap;
   }
   
   .navbar-item:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     color: #ecf0f1;
   }
   
@@ -48,7 +87,7 @@
   .navbar-item::after {
     content: '';
     position: absolute;
-    bottom: 8px;
+    bottom: 4px;
     left: 50%;
     width: 0;
     height: 2px;
@@ -74,35 +113,26 @@
   
   /* Responsive Design */
   @media (max-width: 768px) {
-    .navbar-menu {
+    .navbar-container {
       flex-direction: column;
-      padding: 0.5rem 0;
-      min-height: auto;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    
+    .navbar-menu {
+      flex-wrap: wrap;
+      justify-content: center;
     }
     
     .navbar-item {
-      padding: 0.75rem 1rem;
-      margin: 0.25rem 0;
-      width: 90%;
-      text-align: center;
-      border-radius: 6px;
-    }
-    
-    .navbar-item::after {
-      display: none;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .navbar-item {
+      padding: 0.6rem 1rem;
       font-size: 0.9rem;
-      padding: 0.6rem 0.8rem;
     }
   }
   
   /* Animación de entrada */
   .navbar {
-    animation: slideDown 0.5s ease-out;
+    animation: slideDown 0.6s ease-out;
   }
   
   @keyframes slideDown {
@@ -115,12 +145,3 @@
       opacity: 1;
     }
   }
-  
-  /* Indicador visual cuando no hay usuario logueado */
-  .navbar-menu:empty::before {
-    content: 'No hay usuario logueado';
-    color: rgba(255, 255, 255, 0.7);
-    font-style: italic;
-    padding: 1rem;
-  }
-  

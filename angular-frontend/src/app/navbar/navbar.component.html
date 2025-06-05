@@ -1,9 +1,16 @@
 <nav class="navbar">
-  <ul class="navbar-menu">
-    <li *ngFor="let option of menuOptions"
-        (click)="onSelectOption(option)"
-        class="navbar-item">
-      {{ option }}
-    </li>
-  </ul>
+  <div class="navbar-container">
+    <a href="/" class="navbar-brand">
+      <div class="brand-logo">C</div>
+      <span>Cireste</span>
+    </a>
+    
+    <ul class="navbar-menu">
+      <li *ngFor="let option of menuOptions"
+          (click)="onSelectOption(option)"
+          class="navbar-item">
+        {{ option }}
+      </li>
+    </ul>
+  </div>
 </nav>

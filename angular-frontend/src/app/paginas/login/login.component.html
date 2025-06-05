@@ -1,1 +1,142 @@
-<h1>Hola login</h1>
+<div class="login-container">
+    <div class="form-container">
+      <!-- Formulario de Inicio de Sesión -->
+      <div class="form" [class.hidden]="!showLogin">
+        <h2>Iniciar Sesión</h2>
+        
+        <div class="success-message" *ngIf="loginSuccess">
+          ¡Inicio de sesión exitoso! Bienvenido de vuelta.
+        </div>
+        
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+          <div class="input-group">
+            <input 
+              type="email" 
+              [(ngModel)]="loginData.email" 
+              name="loginEmail" 
+              id="loginEmail"
+              required
+              autocomplete="email"
+              [disabled]="isLoginLoading">
+            <label for="loginEmail">Correo Electrónico</label>
+            <div class="error-message" *ngIf="loginErrors.email">{{ loginErrors.email }}</div>
+          </div>
+          
+          <div class="input-group">
+            <input 
+              [type]="loginPasswordFieldType" 
+              [(ngModel)]="loginData.password" 
+              name="loginPassword" 
+              id="loginPassword"
+              required
+              autocomplete="current-password"
+              [disabled]="isLoginLoading">
+            <label for="loginPassword">Contraseña</label>
+            <span class="password-toggle" (click)="togglePasswordVisibility('login')">
+              {{ loginPasswordFieldType === 'password' ? '👁️' : '🙈' }}
+            </span>
+            <div class="error-message" *ngIf="loginErrors.password">{{ loginErrors.password }}</div>
+          </div>
+          
+          <div class="forgot-password">
+            <a (click)="showForgotPassword()" role="button" tabindex="0">¿Olvidaste tu contraseña?</a>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn" 
+            [disabled]="isLoginLoading || !loginForm.valid">
+            <span *ngIf="isLoginLoading">Iniciando sesión...</span>
+            <span *ngIf="!isLoginLoading">Iniciar Sesión</span>
+          </button>
+        </form>
+        
+        <div class="toggle-text">
+          ¿No tienes cuenta?
+          <span class="toggle-link" (click)="toggleForms()" role="button" tabindex="0">Regístrate aquí</span>
+        </div>
+      </div>
+  
+      <!-- Formulario de Registro -->
+      <div class="form" [class.hidden]="showLogin">
+        <h2>Crear Cuenta</h2>
+        
+        <div class="success-message" *ngIf="registerSuccess">
+          ¡Cuenta creada exitosamente! Ya puedes iniciar sesión.
+        </div>
+        
+        <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+          <div class="input-group">
+            <input 
+              type="text" 
+              [(ngModel)]="registerData.name" 
+              name="registerName" 
+              id="registerName"
+              required
+              autocomplete="name"
+              [disabled]="isRegisterLoading">
+            <label for="registerName">Nombre Completo</label>
+            <div class="error-message" *ngIf="registerErrors.name">{{ registerErrors.name }}</div>
+          </div>
+          
+          <div class="input-group">
+            <input 
+              type="email" 
+              [(ngModel)]="registerData.email" 
+              name="registerEmail" 
+              id="registerEmail"
+              required
+              autocomplete="email"
+              [disabled]="isRegisterLoading">
+            <label for="registerEmail">Correo Electrónico</label>
+            <div class="error-message" *ngIf="registerErrors.email">{{ registerErrors.email }}</div>
+          </div>
+          
+          <div class="input-group">
+            <input 
+              [type]="registerPasswordFieldType" 
+              [(ngModel)]="registerData.password" 
+              name="registerPassword" 
+              id="registerPassword"
+              required
+              autocomplete="new-password"
+              [disabled]="isRegisterLoading">
+            <label for="registerPassword">Contraseña</label>
+            <span class="password-toggle" (click)="togglePasswordVisibility('register')">
+              {{ registerPasswordFieldType === 'password' ? '👁️' : '🙈' }}
+            </span>
+            <div class="error-message" *ngIf="registerErrors.password">{{ registerErrors.password }}</div>
+          </div>
+          
+          <div class="input-group">
+            <input 
+              [type]="registerPasswordFieldType" 
+              [(ngModel)]="registerData.confirmPassword" 
+              name="confirmPassword" 
+              id="confirmPassword"
+              required
+              autocomplete="new-password"
+              [disabled]="isRegisterLoading">
+            <label for="confirmPassword">Confirmar Contraseña</label>
+            <span class="password-toggle" (click)="togglePasswordVisibility('register')">
+              {{ registerPasswordFieldType === 'password' ? '👁️' : '🙈' }}
+            </span>
+            <div class="error-message" *ngIf="registerErrors.confirmPassword">{{ registerErrors.confirmPassword }}</div>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn" 
+            [disabled]="isRegisterLoading || !registerForm.valid">
+            <span *ngIf="isRegisterLoading">Creando cuenta...</span>
+            <span *ngIf="!isRegisterLoading">Crear Cuenta</span>
+          </button>
+        </form>
+        
+        <div class="toggle-text">
+          ¿Ya tienes cuenta?
+          <span class="toggle-link" (click)="toggleForms()" role="button" tabindex="0">Inicia sesión aquí</span>
+        </div>
+      </div>
+    </div>
+  </div>

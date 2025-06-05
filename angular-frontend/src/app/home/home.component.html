@@ -2,23 +2,170 @@
     <app-navbar></app-navbar>
     
     <div class="main-content">
-      <!-- CONTENIDO PRINCIPAL -->
-      <header class="hero-section">
-        <h1>Bienvenido a Cireste</h1>
-        <p>Conecta clientes con empresas para ofrecer y gestionar servicios de manera eficaz, rápida y profesional.</p>
-        <div class="cta-buttons">
-          <a class="btn primary" routerLink="/login">Iniciar sesión</a>
-          <a class="btn secondary" routerLink="/registro">Registrar mi servicio</a>
+      <!-- HERO SECTION -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>🚀 Nueva Plataforma</span>
+          </div>
+          <h1>Bienvenido a <span class="brand-highlight">Cireste</span></h1>
+          <p>Conecta clientes con empresas para ofrecer y gestionar servicios de manera eficaz, rápida y profesional.</p>
+          <div class="cta-buttons">
+            <a class="btn primary" routerLink="/login">
+              <span>Iniciar sesión</span>
+              <i class="arrow">→</i>
+            </a>
+            <a class="btn secondary" routerLink="/registro">
+              <span>Registrar mi servicio</span>
+              <i class="arrow">→</i>
+            </a>
+          </div>
         </div>
-      </header>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">📅</div>
+            <div class="card-text">Reservas Fáciles</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">⚡</div>
+            <div class="card-text">Gestión Rápida</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">🤝</div>
+            <div class="card-text">Conexión Directa</div>
+          </div>
+        </div>
+      </section>
   
-      <section id="sobre-nosotros" class="about-section">
-        <h2>¿Qué es Cireste?</h2>
-        <p>
-          Cireste es una plataforma que facilita la conexión entre clientes y empresas
-          para organizar reservas de servicios. Nuestro objetivo es agilizar procesos
-          y ofrecer una experiencia moderna y segura para ambas partes.
-        </p>
+      <!-- FEATURES SECTION -->
+      <section class="features-section">
+        <div class="section-header">
+          <h2>¿Por qué elegir Cireste?</h2>
+          <p>Descubre las ventajas que hacen de Cireste la mejor opción</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Conexión Directa</h3>
+            <p>Conecta directamente con clientes y empresas sin intermediarios innecesarios.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Gestión Rápida</h3>
+            <p>Organiza y gestiona tus reservas de manera eficiente con nuestra interfaz intuitiva.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Seguro y Confiable</h3>
+            <p>Plataforma segura con encriptación de datos y sistemas de verificación.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Acceso Móvil</h3>
+            <p>Accede desde cualquier dispositivo, en cualquier momento y lugar.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Soporte 24/7</h3>
+            <p>Nuestro equipo está disponible para ayudarte cuando lo necesites.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Analytics Avanzados</h3>
+            <p>Obtén insights valiosos sobre tu negocio con nuestros reportes detallados.</p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- ABOUT SECTION -->
+      <section class="about-section">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>¿Qué es Cireste?</h2>
+            <p>
+              Cireste es una plataforma innovadora que facilita la conexión entre clientes y empresas
+              para organizar reservas de servicios. Nuestro objetivo es agilizar procesos
+              y ofrecer una experiencia moderna y segura para ambas partes.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Empresas Registradas</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5000+</div>
+                <div class="stat-label">Clientes Satisfechos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Reservas Gestionadas</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <div class="visual-element element-1"></div>
+            <div class="visual-element element-2"></div>
+            <div class="visual-element element-3"></div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- CTA SECTION -->
+      <section class="cta-section">
+        <div class="cta-content">
+          <h2>¿Listo para comenzar?</h2>
+          <p>Únete a miles de empresas y clientes que ya confían en Cireste</p>
+          <div class="cta-buttons">
+            <a class="btn primary large" routerLink="/registro">
+              Registrar mi Empresa
+            </a>
+            <a class="btn secondary large" routerLink="/login">
+              Soy Cliente
+            </a>
+          </div>
+        </div>
       </section>
     </div>
+  
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-brand">
+            <div class="brand-logo">C</div>
+            <span>Cireste</span>
+          </div>
+          <p>Conectando clientes y empresas de manera profesional y eficiente.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Enlaces Rápidos</h4>
+          <ul>
+            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/ayuda">Ayuda</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/terminos">Términos</a></li>
+            <li><a href="/privacidad">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Cireste. Todos los derechos reservados.</p>
+      </div>
+    </footer>
   </div>
