@@ -1,0 +1,188 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  /* Asegurar que el navbar se vea correctamente */
+  app-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 4rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+  
+  /* Botones CTA */
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cta-buttons .btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 160px;
+    text-align: center;
+  }
+  
+  .cta-buttons .btn.primary {
+    background-color: #27ae60;
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+  }
+  
+  .cta-buttons .btn.primary:hover {
+    background-color: #219a52;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+  }
+  
+  .cta-buttons .btn.secondary {
+    background-color: #2980b9;
+    color: white;
+    box-shadow: 0 4px 15px rgba(41, 128, 185, 0.3);
+  }
+  
+  .cta-buttons .btn.secondary:hover {
+    background-color: #2471a3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(41, 128, 185, 0.4);
+  }
+  
+  /* Sección Sobre Nosotros */
+  .about-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+  }
+  
+  .about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 1rem;
+    }
+    
+    .hero-section {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+    
+    .hero-section p {
+      font-size: 1rem;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .cta-buttons .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+    
+    .about-section {
+      padding: 2rem 1rem;
+    }
+    
+    .about-section h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-section h1 {
+      font-size: 1.75rem;
+    }
+    
+    .about-section h2 {
+      font-size: 1.75rem;
+    }
+  }
+  
+  /* Animaciones suaves */
+  .hero-section, .about-section {
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

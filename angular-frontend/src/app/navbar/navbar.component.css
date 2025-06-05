@@ -1,0 +1,126 @@
+.navbar {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    margin: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 60px;
+  }
+  
+  .navbar-item {
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    margin: 0 0.25rem;
+    position: relative;
+    user-select: none;
+  }
+  
+  .navbar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    color: #ecf0f1;
+  }
+  
+  .navbar-item:active {
+    transform: translateY(0);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Efecto de línea inferior en hover */
+  .navbar-item::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .navbar-item:hover::after {
+    width: 80%;
+  }
+  
+  /* Estilo especial para "Cerrar sesión" */
+  .navbar-item:last-child {
+    background-color: rgba(231, 76, 60, 0.2);
+    border: 1px solid rgba(231, 76, 60, 0.3);
+  }
+  
+  .navbar-item:last-child:hover {
+    background-color: rgba(231, 76, 60, 0.3);
+    border-color: rgba(231, 76, 60, 0.5);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar-menu {
+      flex-direction: column;
+      padding: 0.5rem 0;
+      min-height: auto;
+    }
+    
+    .navbar-item {
+      padding: 0.75rem 1rem;
+      margin: 0.25rem 0;
+      width: 90%;
+      text-align: center;
+      border-radius: 6px;
+    }
+    
+    .navbar-item::after {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-item {
+      font-size: 0.9rem;
+      padding: 0.6rem 0.8rem;
+    }
+  }
+  
+  /* Animación de entrada */
+  .navbar {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Indicador visual cuando no hay usuario logueado */
+  .navbar-menu:empty::before {
+    content: 'No hay usuario logueado';
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    padding: 1rem;
+  }
+  
