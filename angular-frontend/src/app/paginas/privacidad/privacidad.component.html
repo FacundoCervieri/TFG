@@ -1,0 +1,158 @@
+<!-- privacidad.component.html -->
+<div class="page-container">
+    <app-navbar></app-navbar>
+    
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            🔒 Legal
+          </div>
+          <h1>Política de Privacidad</h1>
+          <p>Tu privacidad es importante para nosotros. Conoce cómo protegemos y utilizamos tu información personal.</p>
+          <div class="last-updated">
+            Última actualización: {{ lastUpdated }}
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">🛡️</div>
+            <div class="card-text">Protección</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">🔐</div>
+            <div class="card-text">Seguridad</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">👤</div>
+            <div class="card-text">Privacidad</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Content Section -->
+      <section class="content-section">
+        <div class="content-container">
+          <!-- Table of Contents -->
+          <aside class="table-of-contents">
+            <h3>Contenidos</h3>
+            <nav class="toc-nav">
+              <a *ngFor="let item of tableOfContents" 
+                 (click)="scrollToSection(item.id)"
+                 class="toc-link">
+                {{ item.title }}
+              </a>
+            </nav>
+          </aside>
+  
+          <!-- Main Content -->
+          <article class="privacy-content">
+            <section id="introduccion" class="content-section-item">
+              <h2>1. Introducción</h2>
+              <p>En [Nombre de la Empresa], nos comprometemos a proteger tu privacidad y a ser transparentes sobre cómo recopilamos, utilizamos y compartimos tu información personal.</p>
+              <p>Esta Política de Privacidad describe nuestras prácticas de información cuando utilizas nuestros servicios, incluyendo nuestro sitio web, aplicaciones móviles y cualquier otro servicio que ofrecemos.</p>
+            </section>
+  
+            <section id="informacion-recopilada" class="content-section-item">
+              <h2>2. Información que Recopilamos</h2>
+              
+              <h3>2.1 Información que nos proporcionas</h3>
+              <ul>
+                <li><strong>Información de cuenta:</strong> Nombre, dirección de correo electrónico, contraseña</li>
+                <li><strong>Información de perfil:</strong> Fotografía, biografía, preferencias</li>
+                <li><strong>Información de contacto:</strong> Dirección, número de teléfono</li>
+                <li><strong>Información de pago:</strong> Datos de tarjetas de crédito, información de facturación</li>
+              </ul>
+  
+              <h3>2.2 Información que recopilamos automáticamente</h3>
+              <ul>
+                <li><strong>Información del dispositivo:</strong> Tipo de dispositivo, sistema operativo, navegador</li>
+                <li><strong>Información de uso:</strong> Páginas visitadas, tiempo de uso, funciones utilizadas</li>
+                <li><strong>Información de ubicación:</strong> Dirección IP, ubicación aproximada</li>
+                <li><strong>Cookies y tecnologías similares:</strong> Identificadores únicos, preferencias</li>
+              </ul>
+            </section>
+  
+            <section id="uso-informacion" class="content-section-item">
+              <h2>3. Cómo Usamos tu Información</h2>
+              <p>Utilizamos la información recopilada para:</p>
+              <ul>
+                <li>Proporcionar, mantener y mejorar nuestros servicios</li>
+                <li>Procesar transacciones y enviar confirmaciones</li>
+                <li>Comunicarnos contigo sobre tu cuenta y nuestros servicios</li>
+                <li>Personalizar tu experiencia y mostrar contenido relevante</li>
+                <li>Detectar y prevenir fraudes y actividades maliciosas</li>
+                <li>Cumplir con obligaciones legales y regulatorias</li>
+              </ul>
+            </section>
+  
+            <section id="compartir-informacion" class="content-section-item">
+              <h2>4. Compartir Información</h2>
+              <p>No vendemos ni alquilamos tu información personal. Podemos compartir tu información en las siguientes circunstancias:</p>
+              
+              <h3>4.1 Proveedores de servicios</h3>
+              <p>Compartimos información con terceros que nos ayudan a operar nuestros servicios, como procesadores de pagos, proveedores de hosting y servicios de análisis.</p>
+  
+              <h3>4.2 Requisitos legales</h3>
+              <p>Podemos divulgar información si es requerido por ley, orden judicial o proceso legal.</p>
+  
+              <h3>4.3 Protección de derechos</h3>
+              <p>Podemos compartir información para proteger nuestros derechos, propiedad o seguridad, o la de nuestros usuarios.</p>
+            </section>
+  
+            <section id="seguridad" class="content-section-item">
+              <h2>5. Seguridad de los Datos</h2>
+              <p>Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger tu información personal:</p>
+              <ul>
+                <li>Encriptación de datos en tránsito y en reposo</li>
+                <li>Controles de acceso estrictos</li>
+                <li>Monitoreo continuo de seguridad</li>
+                <li>Capacitación regular del personal</li>
+                <li>Auditorías de seguridad periódicas</li>
+              </ul>
+            </section>
+  
+            <section id="cookies" class="content-section-item">
+              <h2>6. Cookies y Tecnologías Similares</h2>
+              <p>Utilizamos cookies y tecnologías similares para:</p>
+              <ul>
+                <li>Recordar tus preferencias e inicios de sesión</li>
+                <li>Entender cómo utilizas nuestros servicios</li>
+                <li>Personalizar contenido y anuncios</li>
+                <li>Mejorar la seguridad de nuestros servicios</li>
+              </ul>
+              <p>Puedes controlar el uso de cookies a través de la configuración de tu navegador.</p>
+            </section>
+  
+            <section id="derechos" class="content-section-item">
+              <h2>7. Tus Derechos</h2>
+              <p>Dependiendo de tu ubicación, puedes tener los siguientes derechos:</p>
+              <ul>
+                <li><strong>Acceso:</strong> Solicitar una copia de tu información personal</li>
+                <li><strong>Rectificación:</strong> Corregir información inexacta o incompleta</li>
+                <li><strong>Eliminación:</strong> Solicitar la eliminación de tu información personal</li>
+                <li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado</li>
+                <li><strong>Oposición:</strong> Oponerte al procesamiento de tus datos</li>
+                <li><strong>Limitación:</strong> Restringir cómo procesamos tus datos</li>
+              </ul>
+            </section>
+  
+            <section id="cambios" class="content-section-item">
+              <h2>8. Cambios en esta Política</h2>
+              <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos sobre cambios significativos publicando la nueva política en nuestro sitio web y, cuando sea apropiado, enviándote una notificación.</p>
+              <p>El uso continuado de nuestros servicios después de los cambios constituye tu aceptación de la política actualizada.</p>
+            </section>
+  
+            <section id="contacto" class="content-section-item">
+              <h2>9. Contacto</h2>
+              <p>Si tienes preguntas sobre esta Política de Privacidad o sobre cómo manejamos tu información personal, puedes contactarnos:</p>
+              <div class="contact-info">
+                <p><strong>Email:</strong> privacidad@tudominio.com</p>
+                <p><strong>Dirección:</strong> Calle Principal 123, 28001 Madrid, España</p>
+                <p><strong>Teléfono:</strong> +34 900 123 456</p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </section>

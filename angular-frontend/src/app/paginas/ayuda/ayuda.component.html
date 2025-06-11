@@ -1,0 +1,135 @@
+<!-- ayuda.component.html -->
+<div class="page-container">
+    <app-navbar></app-navbar>
+    
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            📚 Centro de Ayuda
+          </div>
+          <h1>¿Cómo podemos ayudarte?</h1>
+          <p>Encuentra respuestas, guías y soluciones para sacar el máximo provecho de nuestra plataforma</p>
+          
+          <!-- Search Bar -->
+          <div class="search-container">
+            <div class="search-box">
+              <input 
+                type="text" 
+                [(ngModel)]="searchQuery"
+                placeholder="Buscar en la ayuda..."
+                (keyup.enter)="onSearch()">
+              <button (click)="onSearch()" class="search-btn">
+                🔍
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">📖</div>
+            <div class="card-text">Guías</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">💡</div>
+            <div class="card-text">Tips</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">🎯</div>
+            <div class="card-text">Soluciones</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Popular Articles -->
+      <section class="popular-section">
+        <div class="section-header">
+          <h2>Artículos Populares</h2>
+          <p>Los temas que más consultan nuestros usuarios</p>
+        </div>
+        
+        <div class="popular-articles">
+          <a *ngFor="let article of popularArticles" 
+             class="popular-article" 
+             href="#">
+            <span class="article-icon">📄</span>
+            <span class="article-title">{{ article }}</span>
+            <span class="article-arrow">→</span>
+          </a>
+        </div>
+      </section>
+  
+      <!-- Help Categories -->
+      <section class="categories-section">
+        <div class="section-header">
+          <h2>Categorías de Ayuda</h2>
+          <p>Explora nuestras guías organizadas por temas</p>
+        </div>
+        
+        <div class="categories-grid">
+          <div class="category-card" *ngFor="let category of helpCategories">
+            <div class="category-header">
+              <div class="category-icon">{{ category.icon }}</div>
+              <div class="category-info">
+                <h3>{{ category.title }}</h3>
+                <p>{{ category.description }}</p>
+              </div>
+            </div>
+            
+            <div class="category-articles">
+              <a *ngFor="let article of category.articles" 
+                 class="article-link" 
+                 href="#">
+                {{ article }}
+              </a>
+            </div>
+            
+            <div class="category-footer">
+              <a href="#" class="view-all-link">
+                Ver todos los artículos
+                <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Contact Support -->
+      <section class="support-section">
+        <div class="support-content">
+          <div class="support-text">
+            <h2>¿Necesitas más ayuda?</h2>
+            <p>Si no encontraste lo que buscabas, nuestro equipo de soporte está listo para ayudarte</p>
+            
+            <div class="support-options">
+              <div class="support-option">
+                <span class="option-icon">💬</span>
+                <div>
+                  <strong>Chat en vivo</strong>
+                  <p>Respuesta inmediata</p>
+                </div>
+              </div>
+              <div class="support-option">
+                <span class="option-icon">📧</span>
+                <div>
+                  <strong>Email</strong>
+                  <p>Respuesta en 24 horas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="support-actions">
+            <a routerLink="/contacto" class="btn primary large">
+              Contactar Soporte
+              <span class="arrow">→</span>
+            </a>
+            <a routerLink="/faq" class="btn secondary large">
+              Ver FAQ
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

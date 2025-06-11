@@ -1,0 +1,74 @@
+<!-- faq.component.html -->
+<div class="page-container">
+    <app-navbar></app-navbar>
+    
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            💡 Centro de Ayuda
+          </div>
+          <h1>Preguntas Frecuentes</h1>
+          <p>Encuentra respuestas rápidas a las preguntas más comunes sobre nuestro servicio</p>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">❓</div>
+            <div class="card-text">Preguntas</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">💬</div>
+            <div class="card-text">Respuestas</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">⚡</div>
+            <div class="card-text">Soluciones</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="faq-container">
+          <div class="section-header">
+            <h2>¿Tienes alguna pregunta?</h2>
+            <p>Aquí encontrarás las respuestas a las preguntas más frecuentes</p>
+          </div>
+  
+          <div class="faq-list">
+            <div class="faq-item" 
+                 *ngFor="let faq of faqs; let i = index" 
+                 [class.active]="faq.isOpen">
+              <div class="faq-question" (click)="toggleFaq(i)">
+                <h3>{{ faq.question }}</h3>
+                <span class="faq-icon">
+                  <i class="arrow" [class.rotated]="faq.isOpen">▼</i>
+                </span>
+              </div>
+              <div class="faq-answer" [class.show]="faq.isOpen">
+                <p>{{ faq.answer }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Contact CTA -->
+      <section class="contact-cta-section">
+        <div class="cta-content">
+          <h2>¿No encontraste lo que buscabas?</h2>
+          <p>Nuestro equipo de soporte está aquí para ayudarte</p>
+          <div class="cta-buttons">
+            <a routerLink="/contacto" class="btn primary large">
+              Contactar Soporte
+              <span class="arrow">→</span>
+            </a>
+            <a routerLink="/ayuda" class="btn secondary large">
+              Ver Más Ayuda
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

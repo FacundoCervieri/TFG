@@ -1,0 +1,142 @@
+<!-- contacto.component.html -->
+<div class="page-container">
+    <app-navbar></app-navbar>
+    
+    <div class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <div class="hero-badge">
+            📞 Hablemos
+          </div>
+          <h1>Contacto</h1>
+          <p>¿Tienes alguna pregunta o necesitas ayuda? Estamos aquí para ti</p>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-card card-1">
+            <div class="card-icon">💬</div>
+            <div class="card-text">Chat</div>
+          </div>
+          <div class="floating-card card-2">
+            <div class="card-icon">📧</div>
+            <div class="card-text">Email</div>
+          </div>
+          <div class="floating-card card-3">
+            <div class="card-icon">📞</div>
+            <div class="card-text">Teléfono</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Contact Methods Section -->
+      <section class="contact-methods-section">
+        <div class="section-header">
+          <h2>Formas de Contacto</h2>
+          <p>Elige la opción que mejor se adapte a tus necesidades</p>
+        </div>
+        
+        <div class="contact-methods-grid">
+          <div class="contact-method-card" *ngFor="let method of contactMethods">
+            <div class="method-icon">{{ method.icon }}</div>
+            <h3>{{ method.title }}</h3>
+            <p class="method-description">{{ method.description }}</p>
+            <div class="method-value">{{ method.value }}</div>
+            <a [href]="method.action" class="method-button">Contactar</a>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Contact Form Section -->
+      <section class="contact-form-section">
+        <div class="form-container">
+          <div class="form-header">
+            <h2>Envíanos un Mensaje</h2>
+            <p>Completa el formulario y te responderemos lo antes posible</p>
+          </div>
+  
+          <form (ngSubmit)="onSubmit()" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  [(ngModel)]="contactForm.nombre"
+                  name="nombre"
+                  required
+                  placeholder="Tu nombre completo">
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  [(ngModel)]="contactForm.email"
+                  name="email"
+                  required
+                  placeholder="tu@email.com">
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="asunto">Asunto</label>
+              <input 
+                type="text" 
+                id="asunto" 
+                [(ngModel)]="contactForm.asunto"
+                name="asunto"
+                required
+                placeholder="¿En qué podemos ayudarte?">
+            </div>
+  
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea 
+                id="mensaje" 
+                [(ngModel)]="contactForm.mensaje"
+                name="mensaje"
+                required
+                rows="6"
+                placeholder="Describe tu consulta o problema..."></textarea>
+            </div>
+  
+            <button type="submit" class="btn primary large">
+              Enviar Mensaje
+              <span class="arrow">→</span>
+            </button>
+          </form>
+        </div>
+      </section>
+  
+      <!-- Map Section (Optional) -->
+      <section class="map-section">
+        <div class="map-container">
+          <div class="map-info">
+            <h3>Nuestra Oficina</h3>
+            <div class="office-details">
+              <div class="detail-item">
+                <span class="detail-icon">📍</span>
+                <div>
+                  <strong>Dirección</strong>
+                  <p>Calle Principal 123<br>28001 Madrid, España</p>
+                </div>
+              </div>
+              <div class="detail-item">
+                <span class="detail-icon">🕒</span>
+                <div>
+                  <strong>Horario</strong>
+                  <p>Lunes a Viernes: 9:00 - 18:00<br>Sábados: 10:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            <div class="map-content">
+              <span class="map-icon">🗺️</span>
+              <p>Mapa interactivo</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

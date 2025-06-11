@@ -1,7 +1,7 @@
 <div class="home-container">
   <app-navbar></app-navbar>
   <div class="main-content">
-    <ng-content></ng-content> <!-- Cambia router-outlet por ng-content -->
+    <ng-content></ng-content> 
   </div>
   <footer class="footer">
     <div class="footer-content">
@@ -15,12 +15,13 @@
       <div class="footer-section">
         <h4>Enlaces Rápidos</h4>
         <ul>
-          <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
-          <li><a href="/servicios">Servicios</a></li>
+          <li><a routerLink="/sobre-nosotros">Sobre Nosotros</a></li> 
+          <li><a routerLink="/servicios">Servicios</a></li> 
           <li><a routerLink="/contacto">Contacto</a></li>
           <li><a routerLink="/ayuda">Ayuda</a></li>
         </ul>
       </div>
+      
       <div class="footer-section">
         <h4>Soporte</h4>
         <ul>
@@ -29,6 +30,7 @@
           <li><a routerLink="/privacidad">Privacidad</a></li>
         </ul>
       </div>
+      
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 Cireste. Todos los derechos reservados.</p>
