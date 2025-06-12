@@ -1,0 +1,274 @@
+<div class="registro-container">
+    <app-navbar></app-navbar>
+    
+    <div class="main-content">
+      <!-- HEADER SECTION -->
+      <section class="header-section">
+        <div class="header-content">
+          <button class="back-button" (click)="goHome()">
+            <i class="arrow-back">←</i>
+            <span>Volver al inicio</span>
+          </button>
+          <h1>Registra tu <span class="brand-highlight">Servicio</span></h1>
+          <p>Completa el formulario para comenzar a ofrecer tus servicios en Cireste</p>
+          
+          <!-- Progress Bar -->
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+            </div>
+            <div class="progress-text">Paso {{currentStep}} de {{totalSteps}}</div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- FORM SECTION -->
+      <section class="form-section">
+        <div class="form-container">
+          <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+            
+            <!-- PASO 1: TIPO DE USUARIO -->
+            <div class="step-content" *ngIf="currentStep === 1">
+              <div class="step-header">
+                <h2>¿Eres un particular o una empresa?</h2>
+                <p>Selecciona la opción que mejor te describa</p>
+              </div>
+              
+              <div class="options-grid">
+                <div class="option-card" 
+                     *ngFor="let tipo of tiposUsuario"
+                     [class.selected]="registroForm.get('tipoUsuario')?.value === tipo.value"
+                     (click)="selectTipoUsuario(tipo.value)">
+                  <div class="option-icon">{{tipo.icon}}</div>
+                  <h3>{{tipo.label}}</h3>
+                  <p>{{tipo.description}}</p>
+                </div>
+              </div>
+            </div>
+  
+            <!-- PASO 2: TIPO DE SERVICIO -->
+            <div class="step-content" *ngIf="currentStep === 2">
+              <div class="step-header">
+                <h2>¿Qué tipo de servicio ofreces?</h2>
+                <p>Selecciona la categoría que mejor describa tu servicio</p>
+              </div>
+              
+              <div class="services-grid">
+                <div class="service-card" 
+                     *ngFor="let servicio of tiposServicio"
+                     [class.selected]="registroForm.get('tipoServicio')?.value === servicio.value"
+                     (click)="selectTipoServicio(servicio.value)">
+                  <div class="service-icon">{{servicio.icon}}</div>
+                  <span>{{servicio.label}}</span>
+                </div>
+              </div>
+  
+              <div class="form-group" *ngIf="registroForm.get('tipoServicio')?.value">
+                <label for="nombreServicio">Nombre específico de tu servicio *</label>
+                <input 
+                  type="text" 
+                  id="nombreServicio"
+                  formControlName="nombreServicio"
+                  placeholder="Ej: Corte de cabello masculino, Clases de yoga, Reparación de ordenadores..."
+                  class="form-input">
+                <div class="error-message" *ngIf="registroForm.get('nombreServicio')?.invalid && registroForm.get('nombreServicio')?.touched">
+                  El nombre del servicio es requerido (mínimo 3 caracteres)
+                </div>
+              </div>
+            </div>
+  
+            <!-- PASO 3: DESCRIPCIÓN DEL SERVICIO -->
+            <div class="step-content" *ngIf="currentStep === 3">
+              <div class="step-header">
+                <h2>Describe tu servicio</h2>
+                <p>Proporciona información detallada para atraer más clientes</p>
+              </div>
+              
+              <div class="form-group">
+                <label for="descripcionCorta">Descripción breve (máximo 150 caracteres) *</label>
+                <textarea 
+                  id="descripcionCorta"
+                  formControlName="descripcionCorta"
+                  placeholder="Una descripción corta y atractiva de tu servicio..."
+                  class="form-textarea short"
+                  maxlength="150"></textarea>
+                <div class="char-counter">
+                  {{registroForm.get('descripcionCorta')?.value?.length || 0}}/150
+                </div>
+                <div class="error-message" *ngIf="registroForm.get('descripcionCorta')?.invalid && registroForm.get('descripcionCorta')?.touched">
+                  La descripción breve es requerida (10-150 caracteres)
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="descripcionDetallada">Descripción detallada *</label>
+                <textarea 
+                  id="descripcionDetallada"
+                  formControlName="descripcionDetallada"
+                  placeholder="Describe en detalle tu servicio, qué incluye, beneficios, metodología, etc..."
+                  class="form-textarea"></textarea>
+                <div class="error-message" *ngIf="registroForm.get('descripcionDetallada')?.invalid && registroForm.get('descripcionDetallada')?.touched">
+                  La descripción detallada es requerida (mínimo 50 caracteres)
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="precio">Precio (€) *</label>
+                  <input 
+                    type="number" 
+                    id="precio"
+                    formControlName="precio"
+                    placeholder="0.00"
+                    class="form-input"
+                    min="0"
+                    step="0.01">
+                </div>
+  
+                <div class="form-group">
+                  <label for="duracion">Duración aproximada *</label>
+                  <select id="duracion" formControlName="duracion" class="form-select">
+                    <option value="">Seleccionar...</option>
+                    <option value="15min">15 minutos</option>
+                    <option value="30min">30 minutos</option>
+                    <option value="45min">45 minutos</option>
+                    <option value="1h">1 hora</option>
+                    <option value="1.5h">1 hora y 30 minutos</option>
+                    <option value="2h">2 horas</option>
+                    <option value="3h">3 horas</option>
+                    <option value="4h">4 horas</option>
+                    <option value="medio_dia">Medio día</option>
+                    <option value="dia_completo">Día completo</option>
+                    <option value="variable">Variable</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+  
+            <!-- PASO 4: DISPONIBILIDAD Y CONTACTO -->
+            <div class="step-content" *ngIf="currentStep === 4">
+              <div class="step-header">
+                <h2>Disponibilidad y contacto</h2>
+                <p>Indica cuándo estás disponible y cómo pueden contactarte</p>
+              </div>
+              
+              <div class="form-group">
+                <label>Días disponibles *</label>
+                <div class="days-grid">
+                  <button 
+                    type="button"
+                    *ngFor="let dia of diasSemana"
+                    class="day-button"
+                    [class.selected]="isDiaSelected(dia.value)"
+                    (click)="toggleDia(dia.value)">
+                    {{dia.label}}
+                  </button>
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="horarioInicio">Horario desde *</label>
+                  <input 
+                    type="time" 
+                    id="horarioInicio"
+                    formControlName="horarioInicio"
+                    class="form-input">
+                </div>
+  
+                <div class="form-group">
+                  <label for="horarioFin">Horario hasta *</label>
+                  <input 
+                    type="time" 
+                    id="horarioFin"
+                    formControlName="horarioFin"
+                    class="form-input">
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="telefono">Teléfono *</label>
+                  <input 
+                    type="tel" 
+                    id="telefono"
+                    formControlName="telefono"
+                    placeholder="612345678"
+                    class="form-input">
+                  <div class="error-message" *ngIf="registroForm.get('telefono')?.invalid && registroForm.get('telefono')?.touched">
+                    Introduce un teléfono válido (9 dígitos)
+                  </div>
+                </div>
+  
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    formControlName="email"
+                    placeholder="tu@email.com"
+                    class="form-input">
+                  <div class="error-message" *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched">
+                    Introduce un email válido
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="direccion">Dirección *</label>
+                  <input 
+                    type="text" 
+                    id="direccion"
+                    formControlName="direccion"
+                    placeholder="Calle, número, etc."
+                    class="form-input">
+                </div>
+  
+                <div class="form-group">
+                  <label for="ciudad">Ciudad *</label>
+                  <input 
+                    type="text" 
+                    id="ciudad"
+                    formControlName="ciudad"
+                    placeholder="Tu ciudad"
+                    class="form-input">
+                </div>
+              </div>
+            </div>
+  
+            <!-- NAVIGATION BUTTONS -->
+            <div class="form-navigation">
+              <button 
+                type="button" 
+                class="btn secondary"
+                *ngIf="currentStep > 1"
+                (click)="previousStep()">
+                <i class="arrow">←</i>
+                <span>Anterior</span>
+              </button>
+  
+              <button 
+                type="button" 
+                class="btn primary"
+                *ngIf="currentStep < totalSteps"
+                [disabled]="!isCurrentStepValid()"
+                (click)="nextStep()">
+                <span>Siguiente</span>
+                <i class="arrow">→</i>
+              </button>
+  
+              <button 
+                type="submit" 
+                class="btn primary large"
+                *ngIf="currentStep === totalSteps"
+                [disabled]="!registroForm.valid">
+                <span>Registrar Servicio</span>
+                <i class="arrow">✓</i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
