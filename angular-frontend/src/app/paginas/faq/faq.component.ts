@@ -1,12 +1,12 @@
 // faq.component.ts
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-faq',
-  imports: [NavbarComponent, RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, NavbarComponent],
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })

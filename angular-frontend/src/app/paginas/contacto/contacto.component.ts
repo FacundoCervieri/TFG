@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [NavbarComponent, RouterModule, CommonModule],
+  imports: [NavbarComponent, RouterModule, CommonModule, FormsModule],
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
@@ -40,13 +41,7 @@ export class ContactoComponent {
       value: 'Iniciar chat',
       action: '#'
     },
-    {
-      icon: '📍',
-      title: 'Oficina',
-      description: 'Visítanos',
-      value: 'Madrid, España',
-      action: '#'
-    }
+
   ];
 
   onSubmit() {

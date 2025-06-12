@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-faq',
-  imports: [NavbarComponent, RouterModule, CommonModule],
+  imports: [NavbarComponent, RouterModule, CommonModule, FormsModule],
   templateUrl: './ayuda.component.html',
   styleUrls: ['./ayuda.component.css']
 })
