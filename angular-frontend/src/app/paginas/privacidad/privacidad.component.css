@@ -1,0 +1,321 @@
+/* privacidad.component.css */
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f9fbfc;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    background: linear-gradient(135deg, #e0f7fa, #ffffff);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.12);
+    margin-bottom: 3rem;
+  }
+  
+  .hero-content {
+    flex: 1 1 55%;
+  }
+  
+  .hero-badge {
+    background-color: #3498db;
+    color: white;
+    font-weight: 700;
+    padding: 0.35rem 0.9rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+  }
+  
+  .hero-content h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a2a44;
+  }
+  
+  .hero-content p {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #536878;
+    margin-bottom: 0.7rem;
+  }
+  
+  .last-updated {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.4rem;
+  }
+  
+  /* Floating Cards */
+  .hero-visual {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: space-around;
+    gap: 1.8rem;
+    position: relative;
+  }
+  
+  .floating-card {
+    background: #fff;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: default;
+  }
+  
+  .floating-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.3);
+  }
+  
+  .card-icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.6rem;
+    color: #3498db;
+  }
+  
+  .card-text {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #34495e;
+    text-align: center;
+  }
+  
+  /* Content Section */
+  .content-section {
+    display: flex;
+    gap: 2.5rem;
+  }
+  
+  .content-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Table of Contents */
+  .table-of-contents {
+    flex: 0 0 240px;
+    background: #eaf6fc;
+    border-radius: 12px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: 0 6px 18px rgba(52, 152, 219, 0.1);
+    user-select: none;
+  }
+  
+  .table-of-contents h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.25rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.4rem;
+  }
+  
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .toc-link {
+    color: #2980b9;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.25s ease;
+    padding: 0.3rem 0.1rem;
+    border-radius: 6px;
+  }
+  
+  .toc-link:hover {
+    color: #1c5980;
+    background-color: #d6eafc;
+  }
+  
+  /* Privacy Content */
+  .privacy-content {
+    flex: 1 1 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+  
+  .content-section-item {
+    margin-bottom: 2.8rem;
+  }
+  
+  .content-section-item h2 {
+    font-size: 1.9rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.35rem;
+  }
+  
+  .content-section-item h3 {
+    font-size: 1.3rem;
+    color: #34495e;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .content-section-item p,
+  .content-section-item ul {
+    color: #556f7a;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  
+  .content-section-item ul {
+    padding-left: 1.25rem;
+    margin-top: 0.7rem;
+  }
+  
+  .content-section-item ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Contact Info */
+  .contact-info p {
+    margin: 0.3rem 0;
+    font-size: 1.05rem;
+    color: #34495e;
+    font-weight: 600;
+  }
+  
+  .contact-info strong {
+    color: #3498db;
+  }
+  
+  /* Scroll smooth behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .main-content {
+      padding: 2rem 2.5rem;
+    }
+  
+    .hero-section {
+      flex-direction: column;
+      padding: 2rem 2rem;
+    }
+  
+    .hero-visual {
+      width: 100%;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+  
+    .content-section {
+      flex-direction: column;
+    }
+  
+    .table-of-contents {
+      width: 100%;
+      display: flex;
+      overflow-x: auto;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      box-shadow: none;
+      margin-bottom: 1.8rem;
+    }
+  
+    .toc-nav {
+      flex-direction: row;
+      gap: 1.2rem;
+    }
+  
+    .toc-link {
+      white-space: nowrap;
+      font-size: 1rem;
+    }
+  
+    .privacy-content {
+      padding: 1.8rem 1.6rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .main-content {
+      padding: 1.5rem 1.5rem;
+    }
+  
+    .hero-content h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero-badge {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.7rem;
+    }
+  
+    .floating-card {
+      width: 90px;
+      height: 90px;
+      padding: 1rem 1.2rem;
+    }
+  
+    .card-icon {
+      font-size: 2.1rem;
+    }
+  
+    .card-text {
+      font-size: 1rem;
+    }
+  
+    .table-of-contents {
+      padding: 0.8rem 1rem;
+    }
+  
+    .toc-link {
+      font-size: 0.9rem;
+    }
+  
+    .content-section-item h2 {
+      font-size: 1.5rem;
+    }
+  
+    .content-section-item h3 {
+      font-size: 1.1rem;
+    }
+  }
+  

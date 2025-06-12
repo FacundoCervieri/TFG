@@ -1,20 +1,77 @@
-.legal-page, .faq-page {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-    font-family: 'Segoe UI', sans-serif;
+/* Ajustes para el hero específico de términos */
+.terms-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.terms-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.last-update {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+/* Contenedor del contenido de términos */
+.terms-content {
+  max-width: 720px;
+  margin: 3rem auto 5rem;
+  padding: 0 1rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border: 1px solid #e1e8ed;
+}
+
+/* Cada sección de término */
+.term-section {
+  padding: 1.5rem 2rem;
+  border-left: 6px solid #3498db;
+  margin-bottom: 2rem;
+  position: relative;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.05);
+}
+
+.term-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.term-section p {
+  font-size: 1.05rem;
+  color: #7f8c8d;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terms-hero h1 {
+    font-size: 2.25rem;
   }
-  
-  .legal-page h1, .faq-page h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+
+  .term-section {
+    padding: 1.2rem 1.5rem;
   }
-  
-  section, .faq-item {
-    margin-bottom: 1.5rem;
+
+  .term-section h2 {
+    font-size: 1.4rem;
   }
-  
-  .faq-item h3 {
-    font-weight: bold;
+
+  .terms-content {
+    margin: 2rem 1rem 4rem;
   }
-  
+}
